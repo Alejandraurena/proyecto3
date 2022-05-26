@@ -1,0 +1,201 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="easyparking-cliente-heading"
+        data-cy="ClienteCreateUpdateHeading"
+        easyparkingTranslate="easyparkingApp.cliente.home.createOrEditLabel"
+      >
+        Create or edit a Cliente
+      </h2>
+
+      <div>
+        <easyparking-alert-error></easyparking-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" easyparkingTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.cliente.nombreCliente" for="field_nombreCliente"
+            >Nombre Cliente</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombreCliente"
+            id="field_nombreCliente"
+            data-cy="nombreCliente"
+            formControlName="nombreCliente"
+          />
+          <div
+            *ngIf="
+              editForm.get('nombreCliente')!.invalid && (editForm.get('nombreCliente')!.dirty || editForm.get('nombreCliente')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombreCliente')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombreCliente')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.cliente.apellidocliente" for="field_apellidocliente"
+            >Apellidocliente</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="apellidocliente"
+            id="field_apellidocliente"
+            data-cy="apellidocliente"
+            formControlName="apellidocliente"
+          />
+          <div
+            *ngIf="
+              editForm.get('apellidocliente')!.invalid &&
+              (editForm.get('apellidocliente')!.dirty || editForm.get('apellidocliente')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('apellidocliente')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('apellidocliente')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.cliente.bloqueCliente" for="field_bloqueCliente"
+            >Bloque Cliente</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="bloqueCliente"
+            id="field_bloqueCliente"
+            data-cy="bloqueCliente"
+            formControlName="bloqueCliente"
+          />
+          <div
+            *ngIf="
+              editForm.get('bloqueCliente')!.invalid && (editForm.get('bloqueCliente')!.dirty || editForm.get('bloqueCliente')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bloqueCliente')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bloqueCliente')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.cliente.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+          <div *ngIf="editForm.get('phone')!.invalid && (editForm.get('phone')!.dirty || editForm.get('phone')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('phone')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('phone')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.cliente.correoCliente" for="field_correoCliente"
+            >Correo Cliente</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="correoCliente"
+            id="field_correoCliente"
+            data-cy="correoCliente"
+            formControlName="correoCliente"
+          />
+          <div
+            *ngIf="
+              editForm.get('correoCliente')!.invalid && (editForm.get('correoCliente')!.dirty || editForm.get('correoCliente')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('correoCliente')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('correoCliente')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

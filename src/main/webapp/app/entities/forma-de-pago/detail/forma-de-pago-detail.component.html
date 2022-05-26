@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="formaDePago">
+      <h2 data-cy="formaDePagoDetailsHeading"><span easyparkingTranslate="easyparkingApp.formaDePago.detail.title">Forma De Pago</span></h2>
+
+      <hr />
+
+      <easyparking-alert-error></easyparking-alert-error>
+
+      <easyparking-alert></easyparking-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span easyparkingTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ formaDePago.id }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.formaDePago.formaPago">Forma Pago</span></dt>
+        <dd>
+          <span>{{ formaDePago.formaPago }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/forma-de-pago', formaDePago.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220526235449",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vehiculo",
+  "fields": [
+    {
+      "fieldName": "placa",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Vehiculo",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "registro",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "registro",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "tipoVehiculo",
+      "otherEntityName": "tipoVehiculo",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "tipoVehiculo",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

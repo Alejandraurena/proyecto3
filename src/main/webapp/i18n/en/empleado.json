@@ -1,0 +1,31 @@
+{
+  "easyparkingApp": {
+    "empleado": {
+      "home": {
+        "title": "Empleados",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Empleado",
+        "createOrEditLabel": "Create or edit a Empleado",
+        "notFound": "No Empleados found"
+      },
+      "created": "A new Empleado is created with identifier {{ param }}",
+      "updated": "A Empleado is updated with identifier {{ param }}",
+      "deleted": "A Empleado is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empleado {{ id }}?"
+      },
+      "detail": {
+        "title": "Empleado"
+      },
+      "id": "ID",
+      "nombreEmpleado": "Nombre Empleado",
+      "apellidoEmpleado": "Apellido Empleado",
+      "cargoEmpleado": "Cargo Empleado",
+      "phone": "Phone",
+      "user": "User",
+      "cliente": "Cliente",
+      "visitante": "Visitante",
+      "registro": "Registro"
+    }
+  }
+}

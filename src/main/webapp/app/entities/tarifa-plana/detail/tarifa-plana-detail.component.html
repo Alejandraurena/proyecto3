@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tarifaPlana">
+      <h2 data-cy="tarifaPlanaDetailsHeading"><span easyparkingTranslate="easyparkingApp.tarifaPlana.detail.title">Tarifa Plana</span></h2>
+
+      <hr />
+
+      <easyparking-alert-error></easyparking-alert-error>
+
+      <easyparking-alert></easyparking-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span easyparkingTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tarifaPlana.id }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.tarifaPlana.valor">Valor</span></dt>
+        <dd>
+          <span>{{ tarifaPlana.valor }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.tarifaPlana.fechaPago">Fecha Pago</span></dt>
+        <dd>
+          <span>{{ tarifaPlana.fechaPago }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.tarifaPlana.facturacion">Facturacion</span></dt>
+        <dd>
+          <div *ngIf="tarifaPlana.facturacion">
+            <a [routerLink]="['/facturacion', tarifaPlana.facturacion?.id, 'view']">{{ tarifaPlana.facturacion?.valorFactura }}</a>
+          </div>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.tarifaPlana.cliente">Cliente</span></dt>
+        <dd>
+          <div *ngIf="tarifaPlana.cliente">
+            <a [routerLink]="['/cliente', tarifaPlana.cliente?.id, 'view']">{{ tarifaPlana.cliente?.nombreCliente }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tarifa-plana', tarifaPlana.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

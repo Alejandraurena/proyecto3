@@ -1,0 +1,41 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220526235549",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "registro",
+  "fields": [
+    {
+      "fieldName": "horaIngreso",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "horaSalida",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Registro",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "empleado",
+      "otherEntityRelationshipName": "registro",
+      "relationshipName": "empleado",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "placa",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "registro",
+      "relationshipName": "vehiculo",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

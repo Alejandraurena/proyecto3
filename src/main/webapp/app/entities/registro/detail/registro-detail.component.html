@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="registro">
+      <h2 data-cy="registroDetailsHeading"><span easyparkingTranslate="easyparkingApp.registro.detail.title">Registro</span></h2>
+
+      <hr />
+
+      <easyparking-alert-error></easyparking-alert-error>
+
+      <easyparking-alert></easyparking-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span easyparkingTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ registro.id }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.registro.horaIngreso">Hora Ingreso</span></dt>
+        <dd>
+          <span>{{ registro.horaIngreso | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.registro.horaSalida">Hora Salida</span></dt>
+        <dd>
+          <span>{{ registro.horaSalida | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.registro.vehiculo">Vehiculo</span></dt>
+        <dd>
+          <div *ngIf="registro.vehiculo">
+            <a [routerLink]="['/vehiculo', registro.vehiculo?.id, 'view']">{{ registro.vehiculo?.placa }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/registro', registro.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

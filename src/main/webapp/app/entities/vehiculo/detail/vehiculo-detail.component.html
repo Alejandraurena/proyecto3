@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vehiculo">
+      <h2 data-cy="vehiculoDetailsHeading"><span easyparkingTranslate="easyparkingApp.vehiculo.detail.title">Vehiculo</span></h2>
+
+      <hr />
+
+      <easyparking-alert-error></easyparking-alert-error>
+
+      <easyparking-alert></easyparking-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span easyparkingTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vehiculo.id }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.vehiculo.placa">Placa</span></dt>
+        <dd>
+          <span>{{ vehiculo.placa }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.vehiculo.tipoVehiculo">Tipo Vehiculo</span></dt>
+        <dd>
+          <div *ngIf="vehiculo.tipoVehiculo">
+            <a [routerLink]="['/tipo-vehiculo', vehiculo.tipoVehiculo?.id, 'view']">{{ vehiculo.tipoVehiculo?.tipoVehiculo }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vehiculo', vehiculo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

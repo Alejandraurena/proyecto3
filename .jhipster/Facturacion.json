@@ -1,0 +1,47 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220526235249",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "facturacion",
+  "fields": [
+    {
+      "fieldName": "fechaFactura",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "valorFactura",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Facturacion",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tipoVehiculo",
+      "otherEntityRelationshipName": "facturacion",
+      "relationshipName": "tipoVehiculo",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tarifaPlana",
+      "otherEntityRelationshipName": "facturacion",
+      "relationshipName": "tarifaPlana",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "formaPago",
+      "otherEntityName": "formaDePago",
+      "otherEntityRelationshipName": "facturacion",
+      "relationshipName": "formaDepago",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

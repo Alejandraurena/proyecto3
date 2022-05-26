@@ -1,0 +1,111 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="easyparking-visitante-heading"
+        data-cy="VisitanteCreateUpdateHeading"
+        easyparkingTranslate="easyparkingApp.visitante.home.createOrEditLabel"
+      >
+        Create or edit a Visitante
+      </h2>
+
+      <div>
+        <easyparking-alert-error></easyparking-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" easyparkingTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.visitante.nombrevisitante" for="field_nombrevisitante"
+            >Nombrevisitante</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombrevisitante"
+            id="field_nombrevisitante"
+            data-cy="nombrevisitante"
+            formControlName="nombrevisitante"
+          />
+          <div
+            *ngIf="
+              editForm.get('nombrevisitante')!.invalid &&
+              (editForm.get('nombrevisitante')!.dirty || editForm.get('nombrevisitante')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombrevisitante')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombrevisitante')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.visitante.apellido" for="field_apellido">Apellido</label>
+          <input type="text" class="form-control" name="apellido" id="field_apellido" data-cy="apellido" formControlName="apellido" />
+          <div *ngIf="editForm.get('apellido')!.invalid && (editForm.get('apellido')!.dirty || editForm.get('apellido')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('apellido')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.visitante.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+          <div *ngIf="editForm.get('phone')!.invalid && (editForm.get('phone')!.dirty || editForm.get('phone')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('phone')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('phone')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

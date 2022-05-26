@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Empleado.
+    -->
+    <changeSet id="20220526234849-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="easyparking_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado__cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+        <addForeignKeyConstraint baseColumnNames="visitante_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado__visitante_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visitante"/>
+
+        <addForeignKeyConstraint baseColumnNames="registro_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado__registro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="registro"/>
+    </changeSet>
+</databaseChangeLog>

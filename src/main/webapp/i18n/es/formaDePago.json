@@ -1,0 +1,25 @@
+{
+  "easyparkingApp": {
+    "formaDePago": {
+      "home": {
+        "title": "Forma De Pagos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Forma De Pago",
+        "createOrEditLabel": "Crear o editar Forma De Pago",
+        "notFound": "Ningún Forma De Pagos encontrado"
+      },
+      "created": "Un nuevo Forma De Pago ha sido creado con el identificador {{ param }}",
+      "updated": "Un Forma De Pago ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Forma De Pago ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Forma De Pago {{ id }}?"
+      },
+      "detail": {
+        "title": "Forma De Pago"
+      },
+      "id": "ID",
+      "formaPago": "Forma Pago",
+      "facturacion": "Facturacion"
+    }
+  }
+}

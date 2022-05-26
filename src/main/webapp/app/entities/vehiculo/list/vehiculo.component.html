@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="VehiculoHeading">
+    <span easyparkingTranslate="easyparkingApp.vehiculo.home.title">Vehiculos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span easyparkingTranslate="easyparkingApp.vehiculo.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-vehiculo"
+        [routerLink]="['/vehiculo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span easyparkingTranslate="easyparkingApp.vehiculo.home.createLabel"> Create a new Vehiculo </span>
+      </button>
+    </div>
+  </h2>
+
+  <easyparking-alert-error></easyparking-alert-error>
+
+  <easyparking-alert></easyparking-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="vehiculos?.length === 0">
+    <span easyparkingTranslate="easyparkingApp.vehiculo.home.notFound">No vehiculos found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="vehiculos && vehiculos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span easyparkingTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span easyparkingTranslate="easyparkingApp.vehiculo.placa">Placa</span></th>
+          <th scope="col"><span easyparkingTranslate="easyparkingApp.vehiculo.tipoVehiculo">Tipo Vehiculo</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehiculo of vehiculos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/vehiculo', vehiculo.id, 'view']">{{ vehiculo.id }}</a>
+          </td>
+          <td>{{ vehiculo.placa }}</td>
+          <td>
+            <div *ngIf="vehiculo.tipoVehiculo">
+              <a [routerLink]="['/tipo-vehiculo', vehiculo.tipoVehiculo?.id, 'view']">{{ vehiculo.tipoVehiculo?.tipoVehiculo }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/vehiculo', vehiculo.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" easyparkingTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/vehiculo', vehiculo.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" easyparkingTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(vehiculo)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" easyparkingTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220526235649",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tarifa_plana",
+  "fields": [
+    {
+      "fieldName": "valor",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "fechaPago",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TarifaPlana",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "valorFactura",
+      "otherEntityName": "facturacion",
+      "otherEntityRelationshipName": "tarifaPlana",
+      "relationshipName": "facturacion",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "nombreCliente",
+      "otherEntityName": "cliente",
+      "otherEntityRelationshipName": "tarifaPlana",
+      "relationshipName": "cliente",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

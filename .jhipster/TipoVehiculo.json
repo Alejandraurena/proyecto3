@@ -1,0 +1,43 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220526235349",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tipo_vehiculo",
+  "fields": [
+    {
+      "fieldName": "tipoVehiculo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "marcaVehiculo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "25"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TipoVehiculo",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "tipoVehiculo",
+      "relationshipName": "vehiculo",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "valorFactura",
+      "otherEntityName": "facturacion",
+      "otherEntityRelationshipName": "tipoVehiculo",
+      "relationshipName": "facturacion",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

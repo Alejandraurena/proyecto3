@@ -1,0 +1,41 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220526235049",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "visitante",
+  "fields": [
+    {
+      "fieldName": "nombrevisitante",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "apellido",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "25"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Visitante",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "empleado",
+      "otherEntityRelationshipName": "visitante",
+      "relationshipName": "empleado",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,122 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="easyparking-registro-heading"
+        data-cy="RegistroCreateUpdateHeading"
+        easyparkingTranslate="easyparkingApp.registro.home.createOrEditLabel"
+      >
+        Create or edit a Registro
+      </h2>
+
+      <div>
+        <easyparking-alert-error></easyparking-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" easyparkingTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.registro.horaIngreso" for="field_horaIngreso">Hora Ingreso</label>
+          <div class="d-flex">
+            <input
+              id="field_horaIngreso"
+              data-cy="horaIngreso"
+              type="datetime-local"
+              class="form-control"
+              name="horaIngreso"
+              formControlName="horaIngreso"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('horaIngreso')!.invalid && (editForm.get('horaIngreso')!.dirty || editForm.get('horaIngreso')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('horaIngreso')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('horaIngreso')?.errors?.ZonedDateTimelocal"
+              easyparkingTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.registro.horaSalida" for="field_horaSalida">Hora Salida</label>
+          <div class="d-flex">
+            <input
+              id="field_horaSalida"
+              data-cy="horaSalida"
+              type="datetime-local"
+              class="form-control"
+              name="horaSalida"
+              formControlName="horaSalida"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('horaSalida')!.invalid && (editForm.get('horaSalida')!.dirty || editForm.get('horaSalida')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('horaSalida')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('horaSalida')?.errors?.ZonedDateTimelocal"
+              easyparkingTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.registro.vehiculo" for="field_vehiculo">Vehiculo</label>
+          <select class="form-control" id="field_vehiculo" data-cy="vehiculo" name="vehiculo" formControlName="vehiculo">
+            <option *ngIf="!editForm.get('vehiculo')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="vehiculoOption.id === editForm.get('vehiculo')!.value?.id ? editForm.get('vehiculo')!.value : vehiculoOption"
+              *ngFor="let vehiculoOption of vehiculosSharedCollection; trackBy: trackVehiculoById"
+            >
+              {{ vehiculoOption.placa }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['vehiculo'])!.invalid && (editForm.get(['vehiculo'])!.dirty || editForm.get(['vehiculo'])!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['vehiculo'])?.errors?.required"
+            easyparkingTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

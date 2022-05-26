@@ -1,0 +1,30 @@
+{
+  "easyparkingApp": {
+    "cliente": {
+      "home": {
+        "title": "Clientes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cliente",
+        "createOrEditLabel": "Create or edit a Cliente",
+        "notFound": "No Clientes found"
+      },
+      "created": "A new Cliente is created with identifier {{ param }}",
+      "updated": "A Cliente is updated with identifier {{ param }}",
+      "deleted": "A Cliente is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cliente {{ id }}?"
+      },
+      "detail": {
+        "title": "Cliente"
+      },
+      "id": "ID",
+      "nombreCliente": "Nombre Cliente",
+      "apellidocliente": "Apellidocliente",
+      "bloqueCliente": "Bloque Cliente",
+      "phone": "Phone",
+      "correoCliente": "Correo Cliente",
+      "empleado": "Empleado",
+      "tarifaPlana": "Tarifa Plana"
+    }
+  }
+}

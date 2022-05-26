@@ -1,0 +1,131 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="easyparking-tarifa-plana-heading"
+        data-cy="TarifaPlanaCreateUpdateHeading"
+        easyparkingTranslate="easyparkingApp.tarifaPlana.home.createOrEditLabel"
+      >
+        Create or edit a Tarifa Plana
+      </h2>
+
+      <div>
+        <easyparking-alert-error></easyparking-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" easyparkingTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.tarifaPlana.valor" for="field_valor">Valor</label>
+          <input type="number" class="form-control" name="valor" id="field_valor" data-cy="valor" formControlName="valor" />
+          <div *ngIf="editForm.get('valor')!.invalid && (editForm.get('valor')!.dirty || editForm.get('valor')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valor')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valor')?.errors?.number"
+              easyparkingTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.tarifaPlana.fechaPago" for="field_fechaPago">Fecha Pago</label>
+          <input type="text" class="form-control" name="fechaPago" id="field_fechaPago" data-cy="fechaPago" formControlName="fechaPago" />
+          <div *ngIf="editForm.get('fechaPago')!.invalid && (editForm.get('fechaPago')!.dirty || editForm.get('fechaPago')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('fechaPago')?.errors?.required"
+              easyparkingTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('fechaPago')?.errors?.maxlength"
+              easyparkingTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.tarifaPlana.facturacion" for="field_facturacion"
+            >Facturacion</label
+          >
+          <select class="form-control" id="field_facturacion" data-cy="facturacion" name="facturacion" formControlName="facturacion">
+            <option *ngIf="!editForm.get('facturacion')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="
+                facturacionOption.id === editForm.get('facturacion')!.value?.id ? editForm.get('facturacion')!.value : facturacionOption
+              "
+              *ngFor="let facturacionOption of facturacionsSharedCollection; trackBy: trackFacturacionById"
+            >
+              {{ facturacionOption.valorFactura }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="editForm.get(['facturacion'])!.invalid && (editForm.get(['facturacion'])!.dirty || editForm.get(['facturacion'])!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['facturacion'])?.errors?.required"
+            easyparkingTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" easyparkingTranslate="easyparkingApp.tarifaPlana.cliente" for="field_cliente">Cliente</label>
+          <select class="form-control" id="field_cliente" data-cy="cliente" name="cliente" formControlName="cliente">
+            <option *ngIf="!editForm.get('cliente')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="clienteOption.id === editForm.get('cliente')!.value?.id ? editForm.get('cliente')!.value : clienteOption"
+              *ngFor="let clienteOption of clientesSharedCollection; trackBy: trackClienteById"
+            >
+              {{ clienteOption.nombreCliente }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['cliente'])!.invalid && (editForm.get(['cliente'])!.dirty || editForm.get(['cliente'])!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['cliente'])?.errors?.required"
+            easyparkingTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

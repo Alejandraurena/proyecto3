@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tipoVehiculo">
+      <h2 data-cy="tipoVehiculoDetailsHeading">
+        <span easyparkingTranslate="easyparkingApp.tipoVehiculo.detail.title">Tipo Vehiculo</span>
+      </h2>
+
+      <hr />
+
+      <easyparking-alert-error></easyparking-alert-error>
+
+      <easyparking-alert></easyparking-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span easyparkingTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tipoVehiculo.id }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.tipoVehiculo.tipoVehiculo">Tipo Vehiculo</span></dt>
+        <dd>
+          <span>{{ tipoVehiculo.tipoVehiculo }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.tipoVehiculo.marcaVehiculo">Marca Vehiculo</span></dt>
+        <dd>
+          <span>{{ tipoVehiculo.marcaVehiculo }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.tipoVehiculo.facturacion">Facturacion</span></dt>
+        <dd>
+          <div *ngIf="tipoVehiculo.facturacion">
+            <a [routerLink]="['/facturacion', tipoVehiculo.facturacion?.id, 'view']">{{ tipoVehiculo.facturacion?.valorFactura }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tipo-vehiculo', tipoVehiculo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

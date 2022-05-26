@@ -1,0 +1,27 @@
+{
+  "easyparkingApp": {
+    "tarifaPlana": {
+      "home": {
+        "title": "Tarifa Planas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Tarifa Plana",
+        "createOrEditLabel": "Crear o editar Tarifa Plana",
+        "notFound": "Ningún Tarifa Planas encontrado"
+      },
+      "created": "Un nuevo Tarifa Plana ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tarifa Plana ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tarifa Plana ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tarifa Plana {{ id }}?"
+      },
+      "detail": {
+        "title": "Tarifa Plana"
+      },
+      "id": "ID",
+      "valor": "Valor",
+      "fechaPago": "Fecha Pago",
+      "facturacion": "Facturacion",
+      "cliente": "Cliente"
+    }
+  }
+}

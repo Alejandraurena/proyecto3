@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cliente">
+      <h2 data-cy="clienteDetailsHeading"><span easyparkingTranslate="easyparkingApp.cliente.detail.title">Cliente</span></h2>
+
+      <hr />
+
+      <easyparking-alert-error></easyparking-alert-error>
+
+      <easyparking-alert></easyparking-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span easyparkingTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cliente.id }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.cliente.nombreCliente">Nombre Cliente</span></dt>
+        <dd>
+          <span>{{ cliente.nombreCliente }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.cliente.apellidocliente">Apellidocliente</span></dt>
+        <dd>
+          <span>{{ cliente.apellidocliente }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.cliente.bloqueCliente">Bloque Cliente</span></dt>
+        <dd>
+          <span>{{ cliente.bloqueCliente }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.cliente.phone">Phone</span></dt>
+        <dd>
+          <span>{{ cliente.phone }}</span>
+        </dd>
+        <dt><span easyparkingTranslate="easyparkingApp.cliente.correoCliente">Correo Cliente</span></dt>
+        <dd>
+          <span>{{ cliente.correoCliente }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cliente', cliente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span easyparkingTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

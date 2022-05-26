@@ -1,0 +1,27 @@
+{
+  "easyparkingApp": {
+    "visitante": {
+      "home": {
+        "title": "Visitantes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Visitante",
+        "createOrEditLabel": "Create or edit a Visitante",
+        "notFound": "No Visitantes found"
+      },
+      "created": "A new Visitante is created with identifier {{ param }}",
+      "updated": "A Visitante is updated with identifier {{ param }}",
+      "deleted": "A Visitante is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Visitante {{ id }}?"
+      },
+      "detail": {
+        "title": "Visitante"
+      },
+      "id": "ID",
+      "nombrevisitante": "Nombrevisitante",
+      "apellido": "Apellido",
+      "phone": "Phone",
+      "empleado": "Empleado"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220526235149",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "forma_de_pago",
+  "fields": [
+    {
+      "fieldName": "formaPago",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "FormaDePago",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "facturacion",
+      "otherEntityRelationshipName": "formaDepago",
+      "relationshipName": "facturacion",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

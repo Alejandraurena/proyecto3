@@ -1,0 +1,27 @@
+{
+  "easyparkingApp": {
+    "tipoVehiculo": {
+      "home": {
+        "title": "Tipo Vehiculos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Tipo Vehiculo",
+        "createOrEditLabel": "Crear o editar Tipo Vehiculo",
+        "notFound": "Ningún Tipo Vehiculos encontrado"
+      },
+      "created": "Un nuevo Tipo Vehiculo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Vehiculo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Vehiculo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Vehiculo {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Vehiculo"
+      },
+      "id": "ID",
+      "tipoVehiculo": "Tipo Vehiculo",
+      "marcaVehiculo": "Marca Vehiculo",
+      "vehiculo": "Vehiculo",
+      "facturacion": "Facturacion"
+    }
+  }
+}
